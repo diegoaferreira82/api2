@@ -26,6 +26,8 @@ class AutorController {
       }
     } catch (erro) {
       //next é um parametro que é um MÉTODO, uma FUNCAO do controlador
+      //que sai de um app.use para outro app.use que está no arquivo app.js
+      //seria como se mandasse o parametro "erro"para o app.use(manipuladorDeErros) ??
       next(erro);
     }
   }
@@ -49,7 +51,7 @@ class AutorController {
     try {
       const id = req.params.id;
 
-      await autores.findByIdAndUpdate(id, { $set: req.body });
+      await autores.findByIdAndUpdate(id, { $set: req.body }); //o que é esse $set??
 
       res.status(200).send({ message: "Autor atualizado com sucesso" });
     } catch (erro) {

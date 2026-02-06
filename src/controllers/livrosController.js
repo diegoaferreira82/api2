@@ -20,7 +20,7 @@ class LivroController {
       const id = req.params.id;
 
       const livroResultados = await livros.findById(id)
-        .populate("autor", "nome")
+        .populate("autor", "nome") //que função é essa??
         .exec();
 
       res.status(200).send(livroResultados);
@@ -47,7 +47,8 @@ class LivroController {
     try {
       const id = req.params.id;
 
-      await livros.findByIdAndUpdate(id, { $set: req.body });
+      await livros.findByIdAndUpdate(id, { $set: req.body }); //que é esse $set??
+      //o $set vai atualizar os dados constantes no req.body
 
       res.status(200).send({ message: "Livro atualizado com sucesso" });
     } catch (erro) {
@@ -81,9 +82,6 @@ class LivroController {
       next(erro);
     }
   }
-
-
-
 }
 
 export default LivroController

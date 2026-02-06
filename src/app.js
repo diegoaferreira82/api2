@@ -1,4 +1,10 @@
 //APP está configurado cfe aula porém sem funcionar arquivo .ENV
+//o caminho de implementação segue do menor para maior
+//como SERVICOS ->  CONTROLADORES -> ROTAS
+//nesse app os serviços foram abstraidos pela biblioteca mongoose que
+//possui os métodos prontos para persistencia no banco de dados MONGO
+//então aqui não tem a aba serviços mas sim um models que são a estrutura
+//do banco de dados.
 
 import express from "express";
 import db from "./config/dbConnect.js"
